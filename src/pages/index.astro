@@ -1,0 +1,427 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const works = [
+  {
+    number: "01",
+    type: "MOVIE / MUSIC VIDEO",
+    title: "Music Video & Visual Edit",
+    description: "歌ってみたMV、映像演出、リリック表現など。",
+    tag: "AFTER EFFECTS",
+    image: `${import.meta.env.BASE_URL}images/MixImage.png`,
+    alt: "歌ってみたのMIX動画サンプル",
+    url: "https://www.youtube.com/watch?v=7MN1Aabyc7g&list=PLPfFiSzCrNDI&pp=0gcJCR0Ga94AFGB0sAgC",
+    className: "work-visual visual-one"
+    
+  },
+  {
+    number: "02",
+    type: "DEVELOPMENT / TOOL",
+    title: "TelopAssistant",
+    description: "映像制作のワークフローを支える、自作ツールの企画・開発。",
+    tag: "SCRIPT / PRODUCT",
+    image: `${import.meta.env.BASE_URL}images/TelopAssistantImage.png`,
+    alt: "TelopAssistantの紹介画像",
+    url: "https://inuneko-vrcshop.booth.pm/items/9051072",
+    className: "work-visual visual-two"
+  },
+  {
+    number: "03",
+    type: "3D / VIRTUAL CONTENT",
+    title: "VRChat Creative Works",
+    description: "アバター、ワールド、ギミックなどのバーチャルコンテンツ制作。",
+    tag: "UNITY",
+    image: `${import.meta.env.BASE_URL}images/VRCImage.png`,
+    alt: "クロとシロのVRChatイラスト",
+    url: "https://lit.link/inubukikuro",
+    className: "work-visual visual-three"
+  }
+];
+const categories = [
+  ["01", "MOVIE", "映像制作・動画編集"],
+  ["02", "MOTION", "モーショングラフィックス"],
+  ["03", "DESIGN", "ロゴ・グラフィック"],
+  ["04", "DEVELOPMENT", "ツール・スクリプト開発"],
+  ["05", "VR / 3D", "VRChat・Unity関連"]
+];
+---
+<BaseLayout title="CREATIVE PORTFOLIO ? Ideas into Reality" description="映像・デザイン・開発。あらゆる創作をまとめたクリエイターポートフォリオ。">
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="トップへ">
+      <span class="brand-mark">C.</span>
+      <span class="brand-name">CREATIVE PORTFOLIO<small>INDEPENDENT CREATOR</small></span>
+    </a>
+    <nav class="desktop-nav" aria-label="メインナビゲーション">
+      <a href="#about">ABOUT</a>
+      <a href="#works">WORKS</a>
+      <a href="#services">SERVICES</a>
+      <a href="#fields">FIELDS</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
+    <a class="header-cta" href="#contact">LET'S TALK <span>?</span></a>
+    <button class="menu-toggle" aria-label="メニューを開く" aria-expanded="false">?</button>
+  </header>
+
+  <main id="top">
+    <section class="hero section-shell">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="status-dot"></span> PORTFOLIO / 2026</p>
+        <h1>Ideas into<br /><span>Reality.</span></h1>
+        <p class="hero-lead">映像・デザイン・開発。<br />アイデアを、かたちにする。</p>
+        <p class="hero-description">ジャンルにとらわれず、表現と技術を横断して制作しています。<br class="desktop-only" />ここでは、これまでの作品と取り組みをご紹介します。</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#works">VIEW WORKS <span>?</span></a>
+          <a class="text-link" href="#about">ABOUT ME <span>?</span></a>
+        </div>
+      </div>
+      <div class="hero-art" aria-label="抽象的な青い光のビジュアル">
+        <div class="art-orbit orbit-a"></div>
+        <div class="art-orbit orbit-b"></div>
+        <div class="art-core"></div>
+        <div class="art-cross cross-a"></div>
+        <div class="art-cross cross-b"></div>
+        <div class="art-caption">CREATIVE<br />IN PROGRESS<span>?</span></div>
+        <div class="art-index">FIG. 001 ? DIGITAL EXPRESSION</div>
+      </div>
+      <div class="hero-bottom">
+        <span>SCROLL TO EXPLORE</span>
+        <span class="scroll-line"></span>
+        <span>01 / 05</span>
+      </div>
+    </section>
+
+    <section class="intro section-shell" id="about">
+      <div class="section-label"><span>01</span> / ABOUT</div>
+      <div class="intro-content">
+        <p class="overline">A LITTLE INTRODUCTION</p>
+        <h2>つくることを、<br /><span>ひとつの領域に閉じ込めない。</span></h2>
+        <p class="body-copy">映像を編集する。デザインを組み立てる。ツールを開発する。<br />異なる分野の知識や技術を組み合わせながら、目的に合った表現を探しています。</p>
+        <a class="arrow-link" href="#contact">MORE ABOUT ME <span>?</span></a>
+      </div>
+      <div class="intro-aside">
+        <div class="aside-line"></div>
+        <p>CREATIVE<br />× TECHNOLOGY<br />× STORYTELLING</p>
+        <span>INDEPENDENT CREATOR</span>
+      </div>
+    </section>
+
+    <section class="works section-shell" id="works">
+      <div class="section-heading">
+        <div>
+          <div class="section-label"><span>02</span> / SELECTED WORKS</div>
+          <h2>Selected <span>Works.</span></h2>
+        </div>
+        <p>制作物の一部をご紹介します。<br />各作品の詳細は、今後順次追加予定です。</p>
+      </div>
+      <div class="works-grid">
+        {works.map((work) => (
+          <a
+	  class="work-card"
+	  href={work.url}
+	  target="_blank"
+	  rel="noopener noreferrer"
+	  aria-label={`${work.title} を開く`}
+	>
+		<div class={work.className}>
+			<img
+			  class="work-thumbnail"
+			  src={work.image}
+			  alt={work.alt}
+			  title={work.title}
+			  loading="lazy"
+			/>
+		  <span class="work-number">{work.number}</span>
+		  
+		  <div class="work-overlay">
+		  <span class="work-overlay-title">{work.title}</span>
+		  <span class="work-overlay-label">VIEW PROJECT ?</span>
+		</div>
+		</div>
+            <div class="work-meta">{work.type}<span>{work.tag}</span></div>
+            <h3>{work.title}</h3>
+            <p>{work.description}</p>
+            <span class="coming-soon">PROJECT DETAILS COMING SOON</span>
+         </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="services section-shell" id="services">
+      <div class="section-heading">
+        <div>
+          <div class="section-label"><span>03</span> / SERVICES & SHOP</div>
+          <h2>Services <span>& Shop.</span></h2>
+        </div>
+        <p>制作のご依頼や、オリジナルアイテムはこちらから。<br />外部サービスのページで詳細をご確認いただけます。</p>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-card">
+          <div class="service-visual service-visual-mix">
+            <span class="service-index">01 / VOCAL MIX</span>
+            <span class="service-symbol">音</span>
+            <span class="service-visual-caption">VOICE × MUSIC</span>
+          </div>
+          <div class="service-content">
+            <p class="service-kicker">CREATIVE SERVICE</p>
+            <h3>歌ってみた MIX</h3>
+            <p>ボーカルを楽曲になじませ、作品の魅力を引き出すMIXサービス。ご依頼・サービス内容の詳細はココナラをご覧ください。</p>
+            <a class="service-link" href="https://coconala.com/services/4030055" target="_blank" rel="noopener noreferrer">
+              VIEW SERVICE <span>?</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="service-card">
+          <div class="service-visual service-visual-shop">
+            <span class="service-index">02 / DIGITAL SHOP</span>
+            <span class="service-symbol">創</span>
+            <span class="service-visual-caption">VIRTUAL × CREATION</span>
+          </div>
+          <div class="service-content">
+            <p class="service-kicker">ORIGINAL ITEMS</p>
+            <h3>クロシロしょっぷ</h3>
+            <p>VRChat向けアイテムを中心に、制作したデジタルコンテンツを販売しています。ショップはこちらからご覧いただけます。</p>
+            <a class="service-link" href="https://inuneko-vrcshop.booth.pm/" target="_blank" rel="noopener noreferrer">
+              VISIT SHOP <span>?</span>
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="fields section-shell" id="fields">
+      <div class="section-label"><span>04</span> / CREATIVE FIELDS</div>
+      <div class="fields-heading">
+        <h2>What I <span>Do.</span></h2>
+        <p>複数の分野を横断しながら、<br />企画からアウトプットまで取り組みます。</p>
+      </div>
+      <div class="field-list">
+        {categories.map(([num, name, desc]) => (
+          <div class="field-row">
+            <span class="field-num">{num}</span>
+            <h3>{name}</h3>
+            <p>{desc}</p>
+            <span class="field-arrow">?</span>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="statement section-shell">
+      <p class="overline">THE WAY I CREATE</p>
+      <h2>Good ideas deserve<br /><span>good execution.</span></h2>
+      <p>アイデアを思いつくだけで終わらせず、<br />伝わるかたちにするところまで。</p>
+    </section>
+
+    <section class="contact section-shell" id="contact">
+      <div class="section-label"><span>05</span> / CONTACT</div>
+      <div class="contact-inner">
+        <p class="overline">HAVE A PROJECT IN MIND?</p>
+        <h2>Let's make<br /><span>something.</span></h2>
+        <p>制作のご相談・お仕事のご依頼など、<br />お気軽にご連絡ください。</p>
+        <a class="button button-primary" href="mailto:inubukikurovr1024@gmail.com">GET IN TOUCH <span>?</span></a>
+        <small>※公開前にメールアドレスを変更してください。</small>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand" href="#top"><span class="brand-mark">C.</span><span class="brand-name">CREATIVE PORTFOLIO<small>INDEPENDENT CREATOR</small></span></a>
+    <span>c 2026 戌吹クロ. ALL RIGHTS RESERVED.</span>
+    <a href="#top" class="back-top">BACK TO TOP ↑</a>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector(".menu-toggle");
+    const nav = document.querySelector(".desktop-nav");
+    toggle?.addEventListener("click", () => {
+      const opened = toggle.getAttribute("aria-expanded") === "true";
+      toggle.setAttribute("aria-expanded", String(!opened));
+      nav?.classList.toggle("is-open", !opened);
+    });
+    nav?.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => {
+      nav.classList.remove("is-open");
+      toggle?.setAttribute("aria-expanded", "false");
+    }));
+  </script>
+</BaseLayout>
+
+<style>
+.work-card {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.work-card:focus-visible {
+  outline: 2px solid #80c5ff;
+  outline-offset: 5px;
+}
+
+.work-card .work-visual {
+  transition: border-color 0.3s ease;
+}
+
+.work-card:hover .work-visual {
+  border-color: rgba(128, 197, 255, 0.6);
+}
+
+/* 作品カードのホバー演出 */
+.work-visual {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* 画像の拡大 */
+.work-thumbnail {
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.work-card:hover .work-thumbnail {
+  transform: scale(1.06);
+  filter: brightness(0.55);
+}
+
+/* オーバーレイ */
+.work-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: rgba(5, 15, 30, 0.25);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.work-card:hover .work-overlay {
+  opacity: 1;
+}
+
+/* タイトル */
+.work-overlay-title {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  transform: translateY(12px);
+  transition: transform 0.4s ease;
+}
+
+.work-card:hover .work-overlay-title {
+  transform: translateY(0);
+}
+
+/* VIEW PROJECT */
+.work-overlay-label {
+  color: #9ccfff;
+  font-family: "DM Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  transform: translateY(12px);
+  transition: transform 0.4s ease 0.05s;
+}
+
+.work-card:hover .work-overlay-label {
+  transform: translateY(0);
+}
+
+.work-visual {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #080f1b;
+  border: 1px solid rgba(145, 185, 230, 0.13);
+}
+
+.work-thumbnail {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.45s ease;
+}
+
+.work-card:hover .work-thumbnail {
+  transform: scale(1.025);
+}
+
+.work-number {
+  position: absolute;
+  top: 12px;
+  left: 13px;
+  z-index: 2;
+  color: #fff;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.8);
+}
+:global(*){box-sizing:border-box}
+:global(html){scroll-behavior:smooth;scroll-padding-top:90px}
+:global(body){margin:0;background:#080d18;color:#eef3fb;font-family:"Manrope","Noto Sans JP",sans-serif;letter-spacing:.01em}
+:global(a){color:inherit;text-decoration:none}
+:global(::selection){background:#80b9ff;color:#07101f}
+.site-header{height:84px;padding:0 clamp(22px,6vw,92px);display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(170,195,230,.12);position:sticky;top:0;z-index:20;background:rgba(8,13,24,.88);backdrop-filter:blur(18px)}
+.brand{display:flex;align-items:center;gap:11px}.brand-mark{width:36px;height:36px;border:1px solid #7fb8ff;border-radius:50%;display:grid;place-items:center;color:#9bcaff;font-weight:800;font-size:17px}.brand-name{font-size:10px;letter-spacing:.16em;font-weight:800}.brand-name small{display:block;font-size:8px;color:#718098;letter-spacing:.2em;margin-top:4px;font-weight:500}
+.desktop-nav{display:flex;gap:clamp(20px,3vw,48px)}.desktop-nav a,.header-cta{font:10px "DM Mono",monospace;letter-spacing:.13em;color:#aab7ca;transition:color .2s}.desktop-nav a:hover,.header-cta:hover{color:#8dc2ff}.header-cta{border:1px solid rgba(141,194,255,.45);padding:12px 16px;color:#dcecff}.header-cta span{color:#8dc2ff;margin-left:12px}.menu-toggle{display:none;background:none;border:0;color:#fff;font-size:22px}
+.section-shell{padding-left:clamp(22px,10vw,150px);padding-right:clamp(22px,10vw,150px)}
+.hero{min-height:690px;height:calc(100svh - 84px);max-height:900px;position:relative;display:grid;grid-template-columns:1fr 1fr;align-items:center;overflow:hidden}
+.hero:before{content:"";position:absolute;width:680px;height:680px;border-radius:50%;background:#14345c;filter:blur(130px);opacity:.22;right:-150px;top:20px;pointer-events:none}
+.hero-copy{position:relative;z-index:2;padding-bottom:40px}.eyebrow,.overline,.section-label,.work-meta,.coming-soon,.hero-bottom,.art-index,.art-caption,.field-num,.site-footer>span,.back-top{font-family:"DM Mono",monospace}
+.eyebrow{font-size:10px;letter-spacing:.2em;color:#91a6c2;display:flex;align-items:center;gap:10px}.status-dot{width:7px;height:7px;border-radius:50%;background:#72baff;box-shadow:0 0 14px #72baff}
+h1{font-size:clamp(68px,9.2vw,136px);line-height:.91;letter-spacing:-.075em;margin:32px 0 26px;font-weight:800}h1 span,.section-heading h2 span,.fields-heading h2 span,.statement h2 span,.contact h2 span{color:#82baff}
+.hero-lead{font-size:clamp(19px,2vw,26px);line-height:1.8;font-weight:600;margin:0 0 14px}.hero-description,.body-copy{color:#91a0b5;font-size:13px;line-height:2.1}.hero-actions{display:flex;align-items:center;gap:28px;margin-top:34px}
+.button{display:inline-flex;align-items:center;gap:30px;padding:17px 21px;font:11px "DM Mono",monospace;letter-spacing:.13em}.button-primary{background:#8fc3ff;color:#07111f;transition:transform .2s,background .2s}.button-primary:hover{transform:translateY(-3px);background:#b1d7ff}.button span{font-size:16px}.text-link,.arrow-link{font:10px "DM Mono",monospace;letter-spacing:.13em;color:#c0ccdc}.text-link span,.arrow-link span{color:#8fc3ff;margin-left:10px}
+.hero-art{height:min(490px,60vw);max-height:490px;aspect-ratio:1;justify-self:end;width:min(100%,490px);position:relative;border:1px solid rgba(137,184,239,.18);background:radial-gradient(ellipse at 50% 50%,rgba(39,107,180,.25),transparent 52%),linear-gradient(145deg,#101e33,#0a1120 65%);overflow:hidden}
+.hero-art:before,.hero-art:after{content:"";position:absolute;inset:9%;border:1px solid rgba(143,195,255,.12);transform:rotate(32deg)}.hero-art:after{transform:rotate(-32deg)}
+.art-orbit{position:absolute;border:1px solid rgba(130,186,255,.55);border-radius:50%;width:70%;height:70%;left:15%;top:15%;transform:rotate(-28deg) scaleY(.55)}.orbit-b{transform:rotate(55deg) scaleY(.55);border-color:rgba(130,186,255,.3);width:88%;height:88%;left:6%;top:6%}
+.art-core{position:absolute;width:34%;aspect-ratio:1;border-radius:50%;left:33%;top:33%;background:radial-gradient(circle at 35% 30%,#c0e3ff,#4b8fd3 23%,#17416e 55%,#0b1b32 75%);box-shadow:0 0 55px #357fcb,0 0 130px rgba(56,139,226,.4)}
+.art-cross{position:absolute;background:#a8d3ff;width:5px;height:5px;border-radius:50%;box-shadow:0 0 20px 5px #5da9ff;top:24%;left:25%}.cross-b{top:70%;left:75%;width:3px;height:3px}
+.art-caption{position:absolute;bottom:12%;left:10%;font-size:10px;line-height:1.8;letter-spacing:.17em;color:#d8eaff}.art-caption span{font-size:24px;color:#8fc3ff;margin-left:12px}.art-index{position:absolute;right:8%;top:8%;font-size:8px;letter-spacing:.12em;color:#7188a6;writing-mode:vertical-rl}
+.hero-bottom{position:absolute;bottom:30px;left:clamp(22px,10vw,150px);right:clamp(22px,10vw,150px);display:flex;align-items:center;gap:14px;color:#65758d;font-size:8px;letter-spacing:.16em}.scroll-line{height:1px;width:60px;background:#526b89}.hero-bottom span:last-child{margin-left:auto}
+.intro{padding-top:150px;padding-bottom:150px;display:grid;grid-template-columns:1fr 2.2fr 1fr;gap:35px;border-top:1px solid rgba(170,195,230,.1)}
+.section-label{font-size:9px;letter-spacing:.16em;color:#73839a;white-space:nowrap}.section-label span{color:#8fc3ff}.intro-content .overline,.overline{font-size:9px;color:#8db9e8;letter-spacing:.2em}.intro-content h2{font-size:clamp(30px,4vw,54px);line-height:1.45;letter-spacing:-.05em;margin:20px 0}.intro-content h2 span{color:#8da2bd}.body-copy{margin-bottom:28px}.arrow-link{display:inline-block;border-bottom:1px solid #53647c;padding-bottom:12px}
+.intro-aside{align-self:end;padding-bottom:12px}.aside-line{height:1px;background:#344760;margin-bottom:20px}.intro-aside p{font:12px/2 "DM Mono",monospace;letter-spacing:.12em;color:#b5c8df}.intro-aside span{font:8px "DM Mono",monospace;color:#667b96;letter-spacing:.14em}
+.works{padding-top:110px;padding-bottom:140px;background:#0c1422}.section-heading{display:flex;justify-content:space-between;align-items:end;margin-bottom:48px}.section-heading h2,.fields-heading h2{font-size:clamp(42px,6vw,76px);letter-spacing:-.07em;margin:18px 0 0}.section-heading>p,.fields-heading>p{font-size:11px;line-height:2;color:#8494aa}
+.works-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.work-card{min-width:0}.work-visual{height:240px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;border:1px solid rgba(145,185,230,.13)}
+.visual-one{background:radial-gradient(ellipse at 55% 55%,#275d91 0,#142d4a 30%,#101b2d 72%)}.visual-two{background:radial-gradient(ellipse at 45% 50%,#264c6d 0,#152b40 35%,#101a29 75%)}.visual-three{background:radial-gradient(ellipse at 55% 48%,#3a4d72 0,#1a2944 40%,#101827 78%)}
+.work-visual:after{content:"";position:absolute;width:170px;height:170px;border:1px solid rgba(184,218,255,.4);transform:rotate(45deg);box-shadow:0 0 50px rgba(91,163,235,.2)}
+.work-number{position:absolute;top:16px;left:17px;font:10px "DM Mono",monospace;color:#c2d9f3}.visual-word{font:9px "DM Mono",monospace;letter-spacing:.2em;color:#b9d7f7;z-index:1}.visual-symbol{position:absolute;font-size:76px;color:rgba(187,220,255,.16);font-weight:200}
+.work-meta{display:flex;justify-content:space-between;gap:8px;margin-top:20px;color:#8db9e8;font-size:8px;letter-spacing:.1em}.work-meta span{color:#718198}
+.work-card h3{font-size:18px;margin:12px 0 7px;letter-spacing:-.03em}.work-card>p{font-size:11px;color:#8796aa;line-height:1.9;min-height:42px}.coming-soon{display:inline-block;font-size:8px;color:#657a94;letter-spacing:.13em;margin-top:12px}
+
+.services{padding-top:110px;padding-bottom:125px;background:#0a111e;border-top:1px solid rgba(170,195,230,.1)}
+.services-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.service-card{min-width:0;border:1px solid rgba(145,185,230,.16);background:#0d1929;display:grid;grid-template-columns:1fr 1fr;transition:transform .25s,border-color .25s}
+.service-card:hover{transform:translateY(-4px);border-color:rgba(143,195,255,.5)}
+.service-visual{min-height:270px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.service-visual:before,.service-visual:after{content:"";position:absolute;width:190px;height:190px;border:1px solid rgba(184,218,255,.22);transform:rotate(45deg)}
+.service-visual:after{width:135px;height:135px;transform:rotate(-25deg);border-color:rgba(184,218,255,.14)}
+.service-visual-mix{background:radial-gradient(ellipse at 50% 48%,#285d86 0,#172f4b 43%,#101a2a 100%)}
+.service-visual-shop{background:radial-gradient(ellipse at 50% 48%,#344c70 0,#1b2b45 43%,#101827 100%)}
+.service-index,.service-visual-caption{position:absolute;z-index:1;font:8px "DM Mono",monospace;letter-spacing:.16em;color:#c2d9f3}
+.service-index{top:17px;left:17px}
+.service-visual-caption{bottom:17px;left:17px;color:#9bb5d2}
+.service-symbol{position:relative;z-index:1;font-size:78px;font-weight:300;color:rgba(210,231,255,.75);text-shadow:0 0 35px rgba(120,184,255,.35)}
+.service-content{padding:28px 25px;display:flex;flex-direction:column;align-items:flex-start}
+.service-kicker{font:8px "DM Mono",monospace;letter-spacing:.16em;color:#8db9e8;margin:0 0 14px}
+.service-content h3{font-size:21px;letter-spacing:-.04em;margin:0 0 12px}
+.service-content>p:not(.service-kicker){font-size:11px;line-height:2;color:#91a0b5;margin:0 0 24px}
+.service-link{margin-top:auto;display:inline-flex;align-items:center;gap:22px;padding-bottom:9px;border-bottom:1px solid #536b87;font:9px "DM Mono",monospace;letter-spacing:.14em;color:#d5e7fb;transition:color .2s,border-color .2s}
+.service-link span{font-size:16px;color:#8fc3ff}
+.service-link:hover{color:#8fc3ff;border-color:#8fc3ff}
+.fields{padding-top:125px;padding-bottom:135px}.fields-heading{display:flex;justify-content:space-between;align-items:end;margin:18px 0 45px}.field-list{border-top:1px solid #29394f}.field-row{display:grid;grid-template-columns:70px 1.1fr 1fr 30px;align-items:center;gap:20px;padding:24px 8px;border-bottom:1px solid #29394f;transition:padding .2s,background .2s}.field-row:hover{padding-left:18px;background:rgba(105,164,230,.05)}.field-num{font-size:10px;color:#7891ae}.field-row h3{font:500 18px "DM Mono",monospace;letter-spacing:.08em;margin:0}.field-row p{font-size:11px;color:#8796aa}.field-arrow{color:#8fc3ff;font-size:18px}
+.statement{padding-top:110px;padding-bottom:115px;text-align:center;background:linear-gradient(120deg,#101e32,#0b1423 55%,#10223a);border-top:1px solid #263b55;border-bottom:1px solid #263b55}.statement h2,.contact h2{font-size:clamp(44px,7vw,88px);line-height:1.05;letter-spacing:-.07em;margin:25px 0}.statement>p:last-child,.contact-inner>p:not(.overline){font-size:12px;line-height:2;color:#94a5bb}
+.contact{padding-top:120px;padding-bottom:130px;display:grid;grid-template-columns:1fr 2fr}.contact-inner .overline{margin-top:0}.contact h2{margin:20px 0}.contact-inner .button{margin-top:22px}.contact-inner small{display:block;color:#65758a;font-size:9px;margin-top:18px}
+.site-footer{padding:28px clamp(22px,6vw,92px);border-top:1px solid rgba(170,195,230,.12);display:flex;align-items:center;justify-content:space-between;gap:20px}.site-footer>span,.back-top{font-size:8px;letter-spacing:.12em;color:#6f8097}.back-top{color:#a7bbd4}
+@media(max-width:900px){.hero{grid-template-columns:1fr  .8fr}.hero-art{width:100%;height:auto}.intro{grid-template-columns:1fr 2fr}.intro-aside{display:none}.works-grid{grid-template-columns:1fr 1fr}.work-card:last-child{display:none}.services-grid{grid-template-columns:1fr}.service-card{grid-template-columns:.9fr 1.1fr}}
+@media(max-width:640px){.services{padding-top:85px;padding-bottom:90px}.service-card{grid-template-columns:1fr}.service-visual{min-height:190px}.service-content{padding:24px}.site-header{height:70px}.desktop-nav{display:none;position:absolute;top:70px;left:0;right:0;padding:22px;background:#0b1423;border-bottom:1px solid #263b55;flex-direction:column;gap:22px}.desktop-nav.is-open{display:flex}.header-cta{display:none}.menu-toggle{display:block}.hero{height:auto;min-height:760px;max-height:none;grid-template-columns:1fr;align-content:center;padding-top:65px;padding-bottom:100px}.hero-copy{padding-bottom:30px}.hero-art{justify-self:center;width:min(78vw,350px);height:auto}.hero-bottom{bottom:24px}.desktop-only{display:none}.intro{padding-top:90px;padding-bottom:90px;grid-template-columns:1fr;gap:30px}.intro-content h2{font-size:34px}.works{padding-top:85px;padding-bottom:90px}.section-heading,.fields-heading{display:block}.section-heading>p,.fields-heading>p{margin-top:18px}.works-grid{grid-template-columns:1fr}.work-visual{height:220px}.work-card:last-child{display:block}.fields{padding-top:90px;padding-bottom:95px}.field-row{grid-template-columns:34px 1fr 22px;gap:10px;padding:19px 2px}.field-row h3{font-size:14px}.field-row p{grid-column:2;grid-row:2;margin:0}.field-arrow{grid-column:3;grid-row:1}.statement{padding-top:85px;padding-bottom:85px}.contact{padding-top:90px;padding-bottom:95px;grid-template-columns:1fr;gap:35px}.site-footer{flex-wrap:wrap}.site-footer>span{order:3;width:100%}}
+</style>
